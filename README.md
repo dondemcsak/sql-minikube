@@ -15,9 +15,17 @@ If you don't have Chocolatey installed on Windows, you probably should.  It is a
 * Now run the following Powershell command to install Chocolatey
 > Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 * If you don't see any errors, you are ready to use Chocolatey! Type choco or choco -? now.
+
+### Set the Default Chocolatey Deployment Location
+
+If you don't change the default location that Chocolatey deploys applications without installers, it will create folders under C:\ProgramData\chocolatey\lib
+
+When you use Chocolatey to install kubectl and minikube they should be put in the path.  
+
 ### Install kubectl
 With Chocolatey installing the Kubernetes CLI is as simple as:
 > choco install kubernetes-cli
+
 Now test to make sure it is installed
 > kubectl
 
@@ -26,13 +34,11 @@ You can install Minikube the hard way, or the easy way. Here's the traditional, 
 
 Go to https://github.com/kubernetes/minikube/releases and download the Windows Installer for Minikube - minikube-installer.exe
 
-Now run the installer.  It will put Minikube in C:\\Program Files (x86)\\Kubernetes\\Minikube
-
 Or you can use Chocolatey
 > choco install minikube
 
-Now, In your Powershell run this to temporarily add Minikube to your Path
-> $ENV:PATH=”$ENV:PATH;C:\Program Files (x86)\Kubernetes\Minikube”
+Now test to make sure minikube is installed
+> minikube
 
 # Ready to Play with Minikube
 ## Start Minikube
